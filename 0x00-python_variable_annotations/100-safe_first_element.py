@@ -8,11 +8,10 @@ def safe_first_element(lst):
         return None
 """
 
-from types import NoneType
 from typing import Any, Sequence, Union
 
 
-def safe_first_element(lst: Sequence[Any]) -> Union[Any, NoneType]:
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
     """ returns an element of any type or None """
     if lst:
         return lst[0]

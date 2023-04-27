@@ -9,15 +9,15 @@ def safely_get_value(dct, key, default = None):
         return default
 """
 
-from types import NoneType
 from typing import Any, Mapping, TypeVar, Union
 
 
 T = TypeVar('T')
+Rtn = Union[Any, T]
+Dft = Union[T, None]
 
 
-def safely_get_value(dct: Mapping, key: Any,
-                     default: Union[T, NoneType]) -> Union[Any, T]:
+def safely_get_value(dct: Mapping, key: Any, default: Dft = None) -> Rtn:
     """ return a dict value or None """
     if key in dct:
         return dct[key]
