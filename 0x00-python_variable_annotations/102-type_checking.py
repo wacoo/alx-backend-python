@@ -1,4 +1,4 @@
-#!/bin/usr/env python3
+#!/usr/bin/env python3
 """ Use mypy to validate the following piece
 of code and apply any necessary changes.
 
@@ -14,7 +14,8 @@ array = [12, 72, 91]
 
 zoom_2x = zoom_array(array)
 
-zoom_3x = zoom_array(array, 3.0) """
+zoom_3x = zoom_array(array, 3.0)
+"""
 
 from typing import List, Tuple
 

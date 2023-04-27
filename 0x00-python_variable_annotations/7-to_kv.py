@@ -1,6 +1,7 @@
-#!/bin/usr/env python3
+#!/usr/bin/env python3
 """ Write a type-annotated function to_kv that takes a string k
-and an int OR float v as arguments and returns a tuple. """
+and an int OR float v as arguments and returns a tuple.
+"""
 from typing import Tuple, Union
 
 
