@@ -11,13 +11,10 @@ Use the time module to measure an approximate elapsed time.
 import importlib
 import time
 import asyncio
+wait_n = __import__('1-concurrent_coroutines').wait_n
 
-delayf = importlib.import_module('1-concurrent_coroutines')
-
-async def measure_time(n: int, max_delay: int) -> float:
-    #s = time.perf_counter()
-    asyncio.run(gather(n, max_delay))
-    #elapsed = time.perf_counter() - s
-    #return elapsed / n
-async def gather(n: int, max_delay: int) -> float:
-	await asyncio.gather(delayf.wait_n(n, max_delay))
+def measure_time(n: int, max_delay: int) -> float:
+    s = time.perf_counter()
+    asyncio.run(wait_n(n, max_delay))
+    elapsed = time.perf_counter() - s
+    return elapsed / n

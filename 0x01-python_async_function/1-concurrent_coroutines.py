@@ -11,13 +11,17 @@ because of concurrency.
 '''
 from typing import List
 import importlib
-basic = importlib.import_module('0-basic_async_syntax')
+import asyncio
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     ''' return list of delays as float '''
-    lst_of_delay = []
-    for order in range(n):
-        delay = await basic.wait_random(max_delay)
-        lst_of_delay.append(delay)
-    return lst_of_delay
+    lst_delay = []
+    lst_tasks = []
+    for task in range(n):
+        tsk = asyncio.create_task(wait_random(max_delay))
+        lst_tasks.append(tsk)
+
+    lst_delay = [await tsk for tsk in asyncio.as_completed(lst_tasks)]
+    return lst_delay
