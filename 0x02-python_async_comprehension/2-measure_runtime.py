@@ -1,4 +1,4 @@
-#!/ust/bin/env python3
+#!/usr/bin/env python3
 
 ''' Import async_comprehension from the previous file and write
 a measure_runtime coroutine that will execute async_comprehension
@@ -14,6 +14,7 @@ async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> float:
+    ''' return time taken to excute async_comprehension 4 times '''
     start = perf_counter()
     tasks = [async_comprehension() for i in range(4)]
     await asyncio.gather(*tasks)

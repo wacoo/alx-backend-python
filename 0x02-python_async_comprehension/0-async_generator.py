@@ -8,6 +8,7 @@ import random
 import asyncio
 from typing import Generator
 
+
 async def async_generator() -> Generator[float, None, None]:
     '''  asyncronously returns a random number '''
     for i in range(10):
