@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 ''' reate a TestAccessNestedMap class that inherits from unittest.TestCase.
 Implement the TestAccessNestedMap.test_access_nested_map method to test that
 the method returns what it is supposed to.
