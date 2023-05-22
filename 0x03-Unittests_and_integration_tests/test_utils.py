@@ -9,6 +9,7 @@ following inputs:
 import unittest
 from parameterized import parameterized
 from utils import access_nested_map
+from typing import Dict, Union, Tuple
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -23,7 +24,11 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
         ({"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, nested, path, expected):
+    def test_access_nested_map(
+            self, nested: Dict,
+            path: Tuple[str],
+            expected: [Dict, int]
+            ) -> None:
         ''' tests if the function access_nested_map
         returns what it is suppose to '''
         self.assertEqual(access_nested_map(nested, path), expected)
