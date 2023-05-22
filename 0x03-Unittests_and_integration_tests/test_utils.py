@@ -15,10 +15,6 @@ from typing import Dict, Union, Tuple
 class TestAccessNestedMap(unittest.TestCase):
     ''' TestAccessMap test class that inherits from TestCase '''
 
-    def setUp(self):
-        ''' setup test data '''
-        self.nested_map = {"a": {"b": {"c": 1}}}
-
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
@@ -32,3 +28,11 @@ class TestAccessNestedMap(unittest.TestCase):
         ''' tests if the function access_nested_map
         returns what it is suppose to '''
         self.assertEqual(access_nested_map(nested, path), expected)
+
+    @parameterized.expand([
+            ({}, ("a",)),
+            ({"a": 1}, {"a", "b"})
+        ])
+    def test_access_nested_map_exception(self, nested_map, path):
+        with self.assertRaises(KeyError):
+            access_nested_map(nested_map, path)
